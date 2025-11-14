@@ -27,6 +27,22 @@
 	gap: 93px;
 }
 
+/* --- Стили для контейнера изображения --- */
+.p-hero__container__left {
+    flex-shrink: 0;
+    /* Установим размеры для десктопа */
+    width: 651px; /* Ширина на десктопе */
+    height: 386px; /* Высота на десктопе */
+    overflow: hidden; /* Обрезаем, если изображение больше контейнера */
+}
+
+.p-hero__container__left img {
+    width: 100%; /* Изображение занимает всю ширину родителя */
+    height: 100%; /* Изображение занимает всю высоту родителя */
+    object-fit: cover; /* Заполняем контейнер, обрезая лишнее, сохраняя пропорции */
+    display: block; /* Убираем лишние пробелы под изображением */
+}
+
 .p-hero__container__right {
 	padding: 16px 0;
 }
@@ -34,6 +50,7 @@
 .p-hero__container__right-title {
 	font-size: 40px;
 }
+
 
 .p-hero__container__right-line {
 	height: 1px;
@@ -62,8 +79,140 @@
 }
 
 
+/* ======================================================= */
+/* 💻 АДАПТАЦИЯ ДЛЯ МЕНЬШЕГО ДЕСКТОПА / ЛАРДЖ-ТАБЛЕТА (Например, 1260px) */
+/* ======================================================= */
+@media (max-width: 1260px) {
+    .p-hero__container-bottom {
+        gap: 60px;
+    }
+
+    .p-hero__container__left {
+        /* Масштабируем контейнер изображения пропорционально */
+        width: 500px; /* Например, уменьшим ширину */
+        height: 296px; /* Пропорционально уменьшаем высоту (500 / 651 * 386) */
+    }
+
+    .p-hero__container__right-title {
+        font-size: 30px;
+    }
+
+    .p-hero__container__right-list {
+        gap: 50px;
+    }
+}
+
+@media (max-width:950px) {
+	  .p-hero__container__left {
+        /* Масштабируем контейнер изображения пропорционально */
+        width: 400px; /* Например, уменьшим ширину */
+        height: 236px; /* Пропорционально уменьшаем высоту (500 / 651 * 386) */
+    }
+
+	.p-hero__container__right-title {
+        font-size: 24px;
+    }
+	
+}
+
+/* ======================================================= */
+/* 📱 АДАПТАЦИЯ ДЛЯ ПЛАНШЕТА (768px) */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .p-hero {
+        margin-top: 80px;
+        margin-bottom: 30px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 32px;
+    }
+
+    .p-hero__container-bottom {
+        gap: 40px;
+		flex-direction: row-reverse;
+    }
+
+    .p-hero__container__left {
+        order: 2;
+        /* Устанавливаем размеры для планшета */
+        width: 359px;
+        height: 213px;
+        /* Центрируем блок изображения, если он меньше родителя */
+        margin: 0 auto;
+    }
+    
+    .p-hero__container__right {
+        order: 1;
+        padding: 0;
+    }
+
+
+    .p-hero__container__right-line {
+        margin: 15px 0 25px;
+    }
+    
+    .p-hero__container__right-list {
+        font-size: 13px;
+    }
+    
+    .p-hero__container__right-list > div {
+        margin-bottom: 10px;
+    }
+
+    .p-hero__container__right-list-elem {
+        line-height: 160%;
+		font-size: 10px;
+    }
+
+    .p-hero__container__right-link {
+        font-size: 18px;
+        margin-top: 40px;
+    }
+}
+
+/* ======================================================= */
+/* 📱 АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА (650px) */
+/* ======================================================= */
+@media (max-width: 650px) {
+	.p-hero {
+        margin-top: 70px;
+    }
+
+	.p-hero__container-bottom {
+		flex-direction: column;
+    }
+
+    .breadcrumb {
+        padding: 10px 18px;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .p-hero__container__left {
+        width: 100%;
+        max-width: 359px; 
+        height: 213px; 
+        margin: 0 auto; 
+    }
+
+
+    .p-hero__container__right-link {
+        font-size: 16px;
+        margin-top: 30px;
+    }
+
+    .p-hero__container__right-list {
+        font-size: 12px;
+    }
+}
+
 
 /* === ABOUT === */
+
+.p-about {
+	padding: 0 30px;
+}
 
 .p-about__container {
 	font-size: 16px;
@@ -89,10 +238,47 @@
 	color: var(--light);
 }
 
+@media (max-width:768px) {
+	.p-about__container {
+		flex-direction: column;
+		gap: 22px;
+	}
+
+	.p-about__container-left-title {
+		font-size: 24px;
+	}
+
+	
+}
+
+@media (max-width: 650px) {
+	.p-about {
+		padding: 0 15px;
+	}
+
+	.p-about__container{
+		font-size: 14px;
+
+	}
+
+	.p-about__container-left-title {
+		font-size: 20px;
+	}
+
+	
+}
+
 /* AFTER ABOUT */
 
 .p-after-about {
 	margin: 25px 0 78px;
+	padding: 0 30px;
+}
+
+@media (max-width: 650px) {
+	.p-after-about{
+		padding: 0 15px;
+	}
 }
 
 .p-after-about__container {
@@ -112,6 +298,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap:63px;
 	margin-bottom: 60px;
 }
 
@@ -121,6 +308,7 @@
 
 .p-work-stages-elem-left {
 	max-width: 647px;
+	flex: 1;
 }
 
 .p-work-stages-elem-title {
@@ -139,6 +327,7 @@
 	overflow: hidden;
 	width: 594px;
 	height: 464px;
+	flex: 1;
 }
 
 .p-work-stages-elem-right img {
@@ -146,6 +335,41 @@
 	height: 100%;
 	object-fit: cover;
 }
+
+@media (max-width: 768px) {
+
+	.p-work-stages-elem {
+		flex-direction: column !important;
+		align-items: flex-start;
+		gap: 25px;
+		margin-bottom: 40px;
+	}
+
+	.p-work-stages-elem-left {
+		max-width: 100%;
+	}
+
+	.p-work-stages-elem-title {
+		font-size: 24px;
+	}
+
+	.p-work-stages-elem-subtitle {
+		font-size: 16px;
+	}
+
+	.p-work-stages-elem-right {
+		width: 100%;
+		height: auto;
+	}
+
+	.p-work-stages-elem-right img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+}
+
+
 
 /* === RESULT === */
 
@@ -156,6 +380,9 @@
 .p-result__container {
 	display: flex;
 	justify-content: space-between;
+	row-gap:27px;
+	column-gap: 64px;
+	flex-wrap: wrap;
 }
 
 .p-result__container-title {
@@ -170,11 +397,15 @@
 }
 
 
+
+
+
 /* === GALLERY === */
+
 
 .p-gallery__container {
 	display: flex;
-	align-items: end;
+	align-items: flex-end;
 	gap: 60px;
 }
 
@@ -187,10 +418,38 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	gap: 20px;
 }
 
 .p-gallery__container-mobs img {
 	max-width: 284px;
+	width: 100%;
+}
+
+
+
+@media (max-width: 1450px) {
+
+	.p-gallery__container {
+		flex-direction: column-reverse;
+		align-items: center;
+		gap: 30px;
+	}
+
+	.p-gallery__container-mobs {
+		justify-content: center;
+		gap: 15px;
+		width: 100%;
+	}
+
+	.p-gallery__container-mobs img {
+		max-width: 25vw;
+	}
+
+	.p-gallery__container .tab {
+		max-width: 100%;
+		min-width: 0;
+	}
 }
 
 
@@ -201,6 +460,7 @@
 }
 .p-result-cards__container {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 16px;
 }
 .p-result-cards__elem {
@@ -225,4 +485,32 @@
 	font-size: 40px;
 	font-weight: 600;
 	color: rgba(var(--light-rgb), .7);
+}
+
+@media (max-width:768px) {
+
+	.p-result-cards__elem-subtitle {
+		font-size: 12px;
+		margin: 0 15px;
+	}
+
+	.p-result-cards__elem-title {
+		font-size: 30px;
+	}
+
+	.p-result-cards__elem {
+		flex: none;
+		justify-content: center;
+	}
+
+	.p-result-cards__container {
+		justify-content: center;
+
+	}
+}
+
+@media (max-width:442px) {
+.p-result-cards__container{
+flex-direction: column;
+}
 }
